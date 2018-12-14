@@ -3,6 +3,7 @@ package com.ruimap.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -19,9 +20,9 @@ class HomeController{
     public String test(){
         return "test";
     }
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello";
+    @GetMapping("/{input}")
+    public String hello(@PathVariable String input){
+        return "hello "+input+" Your application deployed successfully...";
     }
 }
 
